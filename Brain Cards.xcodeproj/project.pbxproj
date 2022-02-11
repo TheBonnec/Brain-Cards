@@ -7,6 +7,30 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E93CD48527B46B84004245F7 /* BlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD48427B46B84004245F7 /* BlurEffect.swift */; };
+		E93CD48627B46B84004245F7 /* BlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD48427B46B84004245F7 /* BlurEffect.swift */; };
+		E93CD48827B51CD0004245F7 /* BCTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD48727B51CD0004245F7 /* BCTabBar.swift */; };
+		E93CD48927B51CD0004245F7 /* BCTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD48727B51CD0004245F7 /* BCTabBar.swift */; };
+		E93CD48B27B523DD004245F7 /* ContentViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD48A27B523DD004245F7 /* ContentViewVM.swift */; };
+		E93CD48C27B523DD004245F7 /* ContentViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD48A27B523DD004245F7 /* ContentViewVM.swift */; };
+		E93CD48E27B546DD004245F7 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD48D27B546DD004245F7 /* PlusButton.swift */; };
+		E93CD48F27B546DD004245F7 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD48D27B546DD004245F7 /* PlusButton.swift */; };
+		E93CD49227B5646C004245F7 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD49127B5646C004245F7 /* DeckView.swift */; };
+		E93CD49327B5646C004245F7 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD49127B5646C004245F7 /* DeckView.swift */; };
+		E9BC9D1227B2D81E002D470B /* DeckCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BC9D1127B2D81E002D470B /* DeckCellView.swift */; };
+		E9BC9D1327B2D81E002D470B /* DeckCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BC9D1127B2D81E002D470B /* DeckCellView.swift */; };
+		E9BC9D1627B2DEC3002D470B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BC9D1527B2DEC3002D470B /* ColorExtension.swift */; };
+		E9BC9D1727B2DEC3002D470B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BC9D1527B2DEC3002D470B /* ColorExtension.swift */; };
+		E9BC9D1927B2DF5D002D470B /* ProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BC9D1827B2DF5D002D470B /* ProgressRing.swift */; };
+		E9BC9D1A27B2DF5D002D470B /* ProgressRing.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BC9D1827B2DF5D002D470B /* ProgressRing.swift */; };
+		E9BC9D1C27B2EBC1002D470B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BC9D1B27B2EBC1002D470B /* HomeView.swift */; };
+		E9BC9D1D27B2EBC1002D470B /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BC9D1B27B2EBC1002D470B /* HomeView.swift */; };
+		E9BC9D2027B339D9002D470B /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BC9D1F27B339D9002D470B /* Deck.swift */; };
+		E9BC9D2127B339D9002D470B /* Deck.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BC9D1F27B339D9002D470B /* Deck.swift */; };
+		E9BC9D2627B3D0EF002D470B /* HomeViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BC9D2527B3D0EF002D470B /* HomeViewVM.swift */; };
+		E9BC9D2727B3D0EF002D470B /* HomeViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BC9D2527B3D0EF002D470B /* HomeViewVM.swift */; };
+		E9BC9D2927B3D7C6002D470B /* CreateDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BC9D2827B3D7C6002D470B /* CreateDeckView.swift */; };
+		E9BC9D2A27B3D7C6002D470B /* CreateDeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BC9D2827B3D7C6002D470B /* CreateDeckView.swift */; };
 		E9BE2321279B2FE90007D2AE /* Tests_iOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE2320279B2FE90007D2AE /* Tests_iOS.swift */; };
 		E9BE2323279B2FE90007D2AE /* Tests_iOSLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE2322279B2FE90007D2AE /* Tests_iOSLaunchTests.swift */; };
 		E9BE232D279B2FE90007D2AE /* Tests_macOS.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE232C279B2FE90007D2AE /* Tests_macOS.swift */; };
@@ -41,6 +65,18 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		E93CD48427B46B84004245F7 /* BlurEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurEffect.swift; sourceTree = "<group>"; };
+		E93CD48727B51CD0004245F7 /* BCTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCTabBar.swift; sourceTree = "<group>"; };
+		E93CD48A27B523DD004245F7 /* ContentViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewVM.swift; sourceTree = "<group>"; };
+		E93CD48D27B546DD004245F7 /* PlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
+		E93CD49127B5646C004245F7 /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
+		E9BC9D1127B2D81E002D470B /* DeckCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckCellView.swift; sourceTree = "<group>"; };
+		E9BC9D1527B2DEC3002D470B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
+		E9BC9D1827B2DF5D002D470B /* ProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRing.swift; sourceTree = "<group>"; };
+		E9BC9D1B27B2EBC1002D470B /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
+		E9BC9D1F27B339D9002D470B /* Deck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Deck.swift; sourceTree = "<group>"; };
+		E9BC9D2527B3D0EF002D470B /* HomeViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewVM.swift; sourceTree = "<group>"; };
+		E9BC9D2827B3D7C6002D470B /* CreateDeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreateDeckView.swift; sourceTree = "<group>"; };
 		E9BE2306279B2FE80007D2AE /* Shared.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Shared.xcdatamodel; sourceTree = "<group>"; };
 		E9BE2307279B2FE80007D2AE /* Brain_CardsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Brain_CardsApp.swift; sourceTree = "<group>"; };
 		E9BE2308279B2FE80007D2AE /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -89,6 +125,74 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		E93CD49027B56329004245F7 /* Decks */ = {
+			isa = PBXGroup;
+			children = (
+				E93CD49127B5646C004245F7 /* DeckView.swift */,
+			);
+			path = Decks;
+			sourceTree = "<group>";
+		};
+		E9BC9D1027B2D7F1002D470B /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				E9BE2308279B2FE80007D2AE /* ContentView.swift */,
+				E9BC9D2327B3CFDA002D470B /* Home */,
+				E93CD49027B56329004245F7 /* Decks */,
+				E9BC9D2427B3CFE5002D470B /* Components */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		E9BC9D1427B2DEB5002D470B /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC9D1527B2DEC3002D470B /* ColorExtension.swift */,
+				E9BC9D1E27B339C7002D470B /* Core Data */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		E9BC9D1E27B339C7002D470B /* Core Data */ = {
+			isa = PBXGroup;
+			children = (
+				E9BE2309279B2FE80007D2AE /* Persistence.swift */,
+				E9BE2305279B2FE80007D2AE /* Brain_Cards.xcdatamodeld */,
+				E9BC9D1F27B339D9002D470B /* Deck.swift */,
+			);
+			path = "Core Data";
+			sourceTree = "<group>";
+		};
+		E9BC9D2227B3CF96002D470B /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				E93CD48A27B523DD004245F7 /* ContentViewVM.swift */,
+				E9BC9D2527B3D0EF002D470B /* HomeViewVM.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		E9BC9D2327B3CFDA002D470B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC9D1B27B2EBC1002D470B /* HomeView.swift */,
+				E9BC9D2827B3D7C6002D470B /* CreateDeckView.swift */,
+				E9BC9D1127B2D81E002D470B /* DeckCellView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		E9BC9D2427B3CFE5002D470B /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				E9BC9D1827B2DF5D002D470B /* ProgressRing.swift */,
+				E93CD48427B46B84004245F7 /* BlurEffect.swift */,
+				E93CD48727B51CD0004245F7 /* BCTabBar.swift */,
+				E93CD48D27B546DD004245F7 /* PlusButton.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		E9BE22FF279B2FE80007D2AE = {
 			isa = PBXGroup;
 			children = (
@@ -104,10 +208,10 @@
 			isa = PBXGroup;
 			children = (
 				E9BE2307279B2FE80007D2AE /* Brain_CardsApp.swift */,
-				E9BE2308279B2FE80007D2AE /* ContentView.swift */,
-				E9BE2309279B2FE80007D2AE /* Persistence.swift */,
+				E9BC9D1427B2DEB5002D470B /* Model */,
+				E9BC9D2227B3CF96002D470B /* ViewModel */,
+				E9BC9D1027B2D7F1002D470B /* Views */,
 				E9BE230A279B2FE90007D2AE /* Assets.xcassets */,
-				E9BE2305279B2FE80007D2AE /* Brain_Cards.xcdatamodeld */,
 			);
 			path = Shared;
 			sourceTree = "<group>";
@@ -307,10 +411,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9BC9D2027B339D9002D470B /* Deck.swift in Sources */,
 				E9BE2332279B2FE90007D2AE /* Brain_CardsApp.swift in Sources */,
+				E93CD49227B5646C004245F7 /* DeckView.swift in Sources */,
 				E9BE2336279B2FE90007D2AE /* Persistence.swift in Sources */,
+				E93CD48B27B523DD004245F7 /* ContentViewVM.swift in Sources */,
+				E9BC9D1227B2D81E002D470B /* DeckCellView.swift in Sources */,
+				E9BC9D1627B2DEC3002D470B /* ColorExtension.swift in Sources */,
+				E9BC9D2927B3D7C6002D470B /* CreateDeckView.swift in Sources */,
+				E9BC9D1927B2DF5D002D470B /* ProgressRing.swift in Sources */,
+				E93CD48E27B546DD004245F7 /* PlusButton.swift in Sources */,
+				E9BC9D1C27B2EBC1002D470B /* HomeView.swift in Sources */,
 				E9BE2330279B2FE90007D2AE /* Brain_Cards.xcdatamodeld in Sources */,
+				E93CD48527B46B84004245F7 /* BlurEffect.swift in Sources */,
+				E9BC9D2627B3D0EF002D470B /* HomeViewVM.swift in Sources */,
 				E9BE2334279B2FE90007D2AE /* ContentView.swift in Sources */,
+				E93CD48827B51CD0004245F7 /* BCTabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -318,10 +434,22 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E9BC9D2127B339D9002D470B /* Deck.swift in Sources */,
 				E9BE2333279B2FE90007D2AE /* Brain_CardsApp.swift in Sources */,
+				E93CD49327B5646C004245F7 /* DeckView.swift in Sources */,
 				E9BE2337279B2FE90007D2AE /* Persistence.swift in Sources */,
+				E93CD48C27B523DD004245F7 /* ContentViewVM.swift in Sources */,
+				E9BC9D1327B2D81E002D470B /* DeckCellView.swift in Sources */,
+				E9BC9D1727B2DEC3002D470B /* ColorExtension.swift in Sources */,
+				E9BC9D2A27B3D7C6002D470B /* CreateDeckView.swift in Sources */,
+				E9BC9D1A27B2DF5D002D470B /* ProgressRing.swift in Sources */,
+				E93CD48F27B546DD004245F7 /* PlusButton.swift in Sources */,
+				E9BC9D1D27B2EBC1002D470B /* HomeView.swift in Sources */,
 				E9BE2331279B2FE90007D2AE /* Brain_Cards.xcdatamodeld in Sources */,
+				E93CD48627B46B84004245F7 /* BlurEffect.swift in Sources */,
+				E9BC9D2727B3D0EF002D470B /* HomeViewVM.swift in Sources */,
 				E9BE2335279B2FE90007D2AE /* ContentView.swift in Sources */,
+				E93CD48927B51CD0004245F7 /* BCTabBar.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

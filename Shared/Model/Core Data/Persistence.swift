@@ -6,6 +6,8 @@
 //
 
 import CoreData
+import SwiftUI
+
 
 struct PersistenceController {
     static let shared = PersistenceController()
@@ -14,8 +16,12 @@ struct PersistenceController {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
-            let newItem = Item(context: viewContext)
-            newItem.timestamp = Date()
+            let newDeck = Deck(context: viewContext)
+            newDeck.id = UUID()
+            newDeck.name = "Code de la route"
+            newDeck.icon = "car.fill"
+            newDeck.iconColor = UIColor.blue
+            newDeck.lastOpening = Date()
         }
         do {
             try viewContext.save()

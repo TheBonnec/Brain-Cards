@@ -15,6 +15,7 @@ struct Brain_CardsApp: App {
         WindowGroup {
             ContentView()
                 .environment(\.managedObjectContext, persistenceController.container.viewContext)
+                .environmentObject(ContentViewVM())
         }
     }
 }
