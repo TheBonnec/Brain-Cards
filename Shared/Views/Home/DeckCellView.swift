@@ -42,7 +42,7 @@ struct DeckCellView: View {
             }
         }
         .padding(16)
-        .background(Color(uiColor: .systemBackground))
+        .background(Color(uiColor: .brainCardsBackground4))
         .cornerRadius(10)
         .bcShadow2()
     }

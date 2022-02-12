@@ -7,21 +7,30 @@
 
 import SwiftUI
 
-struct DeckView: View {
+struct DeckDetailView: View {
     
     @Environment(\.managedObjectContext) private var context
+    @EnvironmentObject var tabBarVM: TabBarVM
     @FetchRequest(entity: Card.entity(), sortDescriptors: []) private var cards: FetchedResults<Card>
     
     @Binding var showDeckView: Bool
-    
     var deck: Deck
     
     
     
     var body: some View {
-        VStack {
-            topBar
+        ZStack {
+            // Background Color
+            Color(uiColor: .brainCardsBackground)
+                .ignoresSafeArea()
+            
+            VStack {
+                VStack(spacing: 0) {
+                    topBar
+                    titleBar
+                }
                 .vTop()
+            }
         }
     }
     
@@ -32,13 +41,14 @@ struct DeckView: View {
             // Main Menu Button
             Button {
                 self.showDeckView = false
+                self.tabBarVM.toogleTabBar()
             } label: {
                 HStack {
                     Image(systemName: "chevron.left")
-                        .foregroundColor(.cyan)
+                        .foregroundColor(Color(uiColor: deck.iconColor))
                     
                     Text("Main menu")
-                        .foregroundColor(.cyan)
+                        .foregroundColor(Color(uiColor: deck.iconColor))
                 }
             }
 
@@ -51,8 +61,8 @@ struct DeckView: View {
                 Image(systemName: "gearshape.fill")
                     .font(Font.title2.weight(.medium))
                     .frame(width: 40, height: 40)
-                    .foregroundColor(.cyan)
-                    .background(Color(uiColor: .systemBackground))
+                    .foregroundColor(Color(uiColor: deck.iconColor))
+                    .background(Color(uiColor: .brainCardsBackground2))
                     .cornerRadius(6)
                     .bcShadow2()
             }
@@ -62,39 +72,53 @@ struct DeckView: View {
                 print("Run Button Clicked")
             } label: {
                 Text("Run")
-                    .font(Font.title2.weight(.medium))
+                    .font(Font.title3.weight(.medium))
                     .frame(height: 40)
                     .padding(.horizontal, 16)
                     .foregroundColor(.white)
-                    .background(Color.cyan)
+                    .background(Color(uiColor: deck.iconColor))
                     .cornerRadius(6)
                     .bcShadow2()
             }
         }
-        .padding(16)
+        .padding([.horizontal, .top], 16)
     }
     
     
     
+    
+    
     var titleBar: some View {
-        HStack {
+        HStack(spacing: 0) {
             // Deck's Logo
             LinearGradient(gradient: Gradient(colors: [Color(deck.iconColor)]), startPoint: .bottomTrailing, endPoint: .topLeading)
                 .mask({
                     Image(systemName: deck.icon)
                         .resizable()
                         .scaledToFit()
-                        .font(Font.title.weight(.semibold))
+                        .font(Font.title2.weight(.semibold))
             })
-            .frame(width: 40, height: 40)
+            .frame(width: 35, height: 35)
+            .padding(.trailing, 16)
             
             
             // Deck's Title
             Text(deck.name)
                 .font(Font.title.weight(.bold))
             
-            // Deck's progression
+            Spacer()
+            
+            // Deck's Progression Value
+            ZStack {
+                ProgressRing(progression: 0, ringColor: Color(deck.iconColor))
+                    .frame(width: 60, height: 60, alignment: .center)
+                
+                Text(String(format: "%.f", 0))
+                    .font(Font.title2)
+                    .foregroundColor(Color(uiColor: .gray))
+            }
         }
+        .padding([.horizontal, .top], 16)
     }
 }
 
@@ -102,8 +126,13 @@ struct DeckView: View {
 
 
 
+
+
+
+
+
 struct DeckView_Previews: PreviewProvider {
     static var previews: some View {
-        DeckView(showDeckView: .constant(true), deck: Deck())
+        DeckDetailView(showDeckView: .constant(true), deck: Deck())
     }
 }

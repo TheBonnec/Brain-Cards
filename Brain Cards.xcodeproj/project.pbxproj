@@ -11,12 +11,12 @@
 		E93CD48627B46B84004245F7 /* BlurEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD48427B46B84004245F7 /* BlurEffect.swift */; };
 		E93CD48827B51CD0004245F7 /* BCTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD48727B51CD0004245F7 /* BCTabBar.swift */; };
 		E93CD48927B51CD0004245F7 /* BCTabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD48727B51CD0004245F7 /* BCTabBar.swift */; };
-		E93CD48B27B523DD004245F7 /* ContentViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD48A27B523DD004245F7 /* ContentViewVM.swift */; };
-		E93CD48C27B523DD004245F7 /* ContentViewVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD48A27B523DD004245F7 /* ContentViewVM.swift */; };
+		E93CD48B27B523DD004245F7 /* TabBarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD48A27B523DD004245F7 /* TabBarVM.swift */; };
+		E93CD48C27B523DD004245F7 /* TabBarVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD48A27B523DD004245F7 /* TabBarVM.swift */; };
 		E93CD48E27B546DD004245F7 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD48D27B546DD004245F7 /* PlusButton.swift */; };
 		E93CD48F27B546DD004245F7 /* PlusButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD48D27B546DD004245F7 /* PlusButton.swift */; };
-		E93CD49227B5646C004245F7 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD49127B5646C004245F7 /* DeckView.swift */; };
-		E93CD49327B5646C004245F7 /* DeckView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD49127B5646C004245F7 /* DeckView.swift */; };
+		E93CD49227B5646C004245F7 /* DeckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD49127B5646C004245F7 /* DeckDetailView.swift */; };
+		E93CD49327B5646C004245F7 /* DeckDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E93CD49127B5646C004245F7 /* DeckDetailView.swift */; };
 		E9BC9D1227B2D81E002D470B /* DeckCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BC9D1127B2D81E002D470B /* DeckCellView.swift */; };
 		E9BC9D1327B2D81E002D470B /* DeckCellView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BC9D1127B2D81E002D470B /* DeckCellView.swift */; };
 		E9BC9D1627B2DEC3002D470B /* ColorExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BC9D1527B2DEC3002D470B /* ColorExtension.swift */; };
@@ -45,6 +45,8 @@
 		E9BE2337279B2FE90007D2AE /* Persistence.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9BE2309279B2FE80007D2AE /* Persistence.swift */; };
 		E9BE2338279B2FE90007D2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9BE230A279B2FE90007D2AE /* Assets.xcassets */; };
 		E9BE2339279B2FE90007D2AE /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E9BE230A279B2FE90007D2AE /* Assets.xcassets */; };
+		E9E544C327B86DF800EEF3B6 /* CreationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E544C227B86DF800EEF3B6 /* CreationMenu.swift */; };
+		E9E544C427B86DF800EEF3B6 /* CreationMenu.swift in Sources */ = {isa = PBXBuildFile; fileRef = E9E544C227B86DF800EEF3B6 /* CreationMenu.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,9 +69,9 @@
 /* Begin PBXFileReference section */
 		E93CD48427B46B84004245F7 /* BlurEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BlurEffect.swift; sourceTree = "<group>"; };
 		E93CD48727B51CD0004245F7 /* BCTabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BCTabBar.swift; sourceTree = "<group>"; };
-		E93CD48A27B523DD004245F7 /* ContentViewVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewVM.swift; sourceTree = "<group>"; };
+		E93CD48A27B523DD004245F7 /* TabBarVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarVM.swift; sourceTree = "<group>"; };
 		E93CD48D27B546DD004245F7 /* PlusButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlusButton.swift; sourceTree = "<group>"; };
-		E93CD49127B5646C004245F7 /* DeckView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckView.swift; sourceTree = "<group>"; };
+		E93CD49127B5646C004245F7 /* DeckDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckDetailView.swift; sourceTree = "<group>"; };
 		E9BC9D1127B2D81E002D470B /* DeckCellView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeckCellView.swift; sourceTree = "<group>"; };
 		E9BC9D1527B2DEC3002D470B /* ColorExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ColorExtension.swift; sourceTree = "<group>"; };
 		E9BC9D1827B2DF5D002D470B /* ProgressRing.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressRing.swift; sourceTree = "<group>"; };
@@ -91,6 +93,7 @@
 		E9BE2328279B2FE90007D2AE /* Tests macOS.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Tests macOS.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E9BE232C279B2FE90007D2AE /* Tests_macOS.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOS.swift; sourceTree = "<group>"; };
 		E9BE232E279B2FE90007D2AE /* Tests_macOSLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tests_macOSLaunchTests.swift; sourceTree = "<group>"; };
+		E9E544C227B86DF800EEF3B6 /* CreationMenu.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CreationMenu.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -128,7 +131,7 @@
 		E93CD49027B56329004245F7 /* Decks */ = {
 			isa = PBXGroup;
 			children = (
-				E93CD49127B5646C004245F7 /* DeckView.swift */,
+				E93CD49127B5646C004245F7 /* DeckDetailView.swift */,
 			);
 			path = Decks;
 			sourceTree = "<group>";
@@ -166,8 +169,8 @@
 		E9BC9D2227B3CF96002D470B /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				E93CD48A27B523DD004245F7 /* ContentViewVM.swift */,
 				E9BC9D2527B3D0EF002D470B /* HomeViewVM.swift */,
+				E93CD48A27B523DD004245F7 /* TabBarVM.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -185,10 +188,11 @@
 		E9BC9D2427B3CFE5002D470B /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				E9BC9D1827B2DF5D002D470B /* ProgressRing.swift */,
-				E93CD48427B46B84004245F7 /* BlurEffect.swift */,
 				E93CD48727B51CD0004245F7 /* BCTabBar.swift */,
+				E93CD48427B46B84004245F7 /* BlurEffect.swift */,
+				E9E544C227B86DF800EEF3B6 /* CreationMenu.swift */,
 				E93CD48D27B546DD004245F7 /* PlusButton.swift */,
+				E9BC9D1827B2DF5D002D470B /* ProgressRing.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -413,9 +417,10 @@
 			files = (
 				E9BC9D2027B339D9002D470B /* Deck.swift in Sources */,
 				E9BE2332279B2FE90007D2AE /* Brain_CardsApp.swift in Sources */,
-				E93CD49227B5646C004245F7 /* DeckView.swift in Sources */,
+				E93CD49227B5646C004245F7 /* DeckDetailView.swift in Sources */,
 				E9BE2336279B2FE90007D2AE /* Persistence.swift in Sources */,
-				E93CD48B27B523DD004245F7 /* ContentViewVM.swift in Sources */,
+				E9E544C327B86DF800EEF3B6 /* CreationMenu.swift in Sources */,
+				E93CD48B27B523DD004245F7 /* TabBarVM.swift in Sources */,
 				E9BC9D1227B2D81E002D470B /* DeckCellView.swift in Sources */,
 				E9BC9D1627B2DEC3002D470B /* ColorExtension.swift in Sources */,
 				E9BC9D2927B3D7C6002D470B /* CreateDeckView.swift in Sources */,
@@ -436,9 +441,10 @@
 			files = (
 				E9BC9D2127B339D9002D470B /* Deck.swift in Sources */,
 				E9BE2333279B2FE90007D2AE /* Brain_CardsApp.swift in Sources */,
-				E93CD49327B5646C004245F7 /* DeckView.swift in Sources */,
+				E93CD49327B5646C004245F7 /* DeckDetailView.swift in Sources */,
 				E9BE2337279B2FE90007D2AE /* Persistence.swift in Sources */,
-				E93CD48C27B523DD004245F7 /* ContentViewVM.swift in Sources */,
+				E9E544C427B86DF800EEF3B6 /* CreationMenu.swift in Sources */,
+				E93CD48C27B523DD004245F7 /* TabBarVM.swift in Sources */,
 				E9BC9D1327B2D81E002D470B /* DeckCellView.swift in Sources */,
 				E9BC9D1727B2DEC3002D470B /* ColorExtension.swift in Sources */,
 				E9BC9D2A27B3D7C6002D470B /* CreateDeckView.swift in Sources */,

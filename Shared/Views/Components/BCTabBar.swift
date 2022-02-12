@@ -11,26 +11,30 @@ import Combine
 
 struct BCTabBar: View {
     
-    @EnvironmentObject var contentViewVM: ContentViewVM
-    var tabBarElements: [String] = ["house.fill", "chart.bar.fill", "person.crop.circle.fill"]
+    @Binding var tabBarState: BCTabBarEnum
+    @EnvironmentObject var tabBarVM: TabBarVM
+    var tabBarElements: [BCTabBarEnum] = [.home, .store, .statistics, .account]
     
     
     var body: some View {
         HStack(spacing: 0) {
             ForEach(tabBarElements, id: \.self) {element in
-                Image(systemName: element)
+                Image(systemName: element.rawValue)
                     .hCenter()
                     .vCenter()
                     .font(Font.title3.weight(.semibold))
-                    .foregroundColor(contentViewVM.tabBarState.rawValue == element ? .cyan : .gray)
-                    .background(contentViewVM.tabBarState.rawValue == element ? Color.cyan.opacity(0.1) : nil)
-                    .cornerRadius(7)
+                    .foregroundColor(tabBarState == element ? .cyan : .gray)     // gray or cyan if selected
+                    .background(tabBarState == element ? Color.cyan.opacity(0.1) : Color(uiColor: .brainCardsBackground4).opacity(0))
+                    .cornerRadius(7)    // Corns the background
+                    .onTapGesture {
+                        self.tabBarState = element
+                    }
             }
         }
-        .hCenter()
+        .hCenter()      // Place the hole bar at the center
         .frame(height: 52)  // Value is set to 52 because there's a padding of 4 inside (4 on top and 4 on bottom)
-        .padding(4)     // Inside padding
-        .background(Color(uiColor: .systemBackground))
+        .padding(4)
+        .background(Color(uiColor: .brainCardsBackground4))
         .cornerRadius(10)
         .padding(16)    // Outside padding
         .bcShadow()
@@ -43,6 +47,6 @@ struct BCTabBar: View {
 
 struct BCTabBar_Previews: PreviewProvider {
     static var previews: some View {
-        BCTabBar()
+        BCTabBar(tabBarState: .constant(.home))
     }
 }

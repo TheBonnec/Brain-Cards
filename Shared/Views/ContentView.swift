@@ -11,17 +11,23 @@ import CoreData
 struct ContentView: View {
     
     @Environment(\.managedObjectContext) var context
-    @EnvironmentObject var contentViewVM: ContentViewVM
+    @EnvironmentObject var tabBarVM: TabBarVM
+    @State var tabBarState: BCTabBarEnum = .home
     
 
     var body: some View {
         ZStack {
             // Main view
-            HomeView()
+            switch tabBarState {
+            case .home: HomeView()
+            case .store: Text("Store")
+            case .statistics: Text("Statistics")
+            case .account: Text("Account")
+            }
             
             // Tab Bar
-            if contentViewVM.showTabBar {
-                BCTabBar()
+            if tabBarVM.showTabBar {
+                BCTabBar(tabBarState: $tabBarState)
                     .vBottom()
             }
         }
@@ -38,6 +44,7 @@ struct ContentView_Previews: PreviewProvider {
         ContentView()
     }
 }
+
 
 
 

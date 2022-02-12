@@ -13,7 +13,6 @@ import CoreData
 
 
 class HomeViewVM: ObservableObject {
-    
     func createDeck(context: NSManagedObjectContext, name: String, icon: String, iconColor: UIColor) {
         let newDeck = Deck(context: context)
         newDeck.id = UUID()

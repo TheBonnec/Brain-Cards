@@ -10,7 +10,7 @@ import SwiftUI
 struct CreateDeckView: View {
     
     @Environment(\.managedObjectContext) private var context
-    @EnvironmentObject var contentViewVM: ContentViewVM
+    @EnvironmentObject var tabBarVM: TabBarVM
     @ObservedObject var homeViewVM: HomeViewVM
     
     @Binding var showCreateDeckView: Bool
@@ -31,35 +31,12 @@ struct CreateDeckView: View {
     
     
     
+    
     var body: some View {
-        ZStack {
-            // Blur Background
-            BlurEffect(style: .systemUltraThinMaterial)
-                .ignoresSafeArea()
-            
+        CreationMenu(showMenu: $showCreateDeckView, title: "New Deck") {
+            self.tabBarVM.toogleTabBar()
+        } contentView: {
             VStack {
-                // View header
-                HStack {
-                    // Page title
-                    Text("New Deck")
-                        .font(Font.title3.weight(.semibold))
-                        .hLeading()
-                    
-                    // Close page button
-                    Button {
-                        self.contentViewVM.toogleTabBar()
-                        self.showCreateDeckView = false
-                    } label: {
-                        Image(systemName: "xmark")
-                            .font(Font.body.weight(.bold))
-                            .foregroundColor(.red)
-                            .frame(width: 30, height: 30)
-                            .background(Color.red.opacity(0.1))
-                            .cornerRadius(5)
-                    }
-
-                }
-                
                 // Deck's name field
                 TextField("Deck's name", text: $name)
                     .padding(.top, 12)
@@ -81,14 +58,14 @@ struct CreateDeckView: View {
                     }
                 }
                 .padding(.all, 8)
-                .background(Color(uiColor: .brainCardsBackground))
+                .background(Color(uiColor: .brainCardsBackground2))
                 .frame(height: 152)
                 .cornerRadius(8)
                 .padding(.top, 8)
                 
                 // Color selector
                 ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHGrid(rows: colorGridItems, spacing: 8 ) {
+                    LazyHGrid(rows: colorGridItems, spacing: 8) {
                         ForEach(colorsList, id: \.self) { iconColor in
                             Image(systemName: iconColor == self.iconColor ? "circle.inset.filled" : "circle.fill")
                                 .font(Font.body.weight(.semibold))
@@ -101,7 +78,7 @@ struct CreateDeckView: View {
                     }
                 }
                 .padding(.all, 8)
-                .background(Color(uiColor: .brainCardsBackground))
+                .background(Color(uiColor: .brainCardsBackground2))
                 .frame(height: 56)
                 .cornerRadius(8)
                 .padding(.top, 8)
@@ -110,7 +87,7 @@ struct CreateDeckView: View {
                 // Create button
                 Button {
                     self.homeViewVM.createDeck(context: context, name: name, icon: icon, iconColor: iconColor)
-                    self.contentViewVM.toogleTabBar()
+                    self.tabBarVM.toogleTabBar()
                     self.showCreateDeckView = false
                 } label: {
                     Text("Create")
@@ -120,14 +97,9 @@ struct CreateDeckView: View {
                         .background(Color.cyan)
                         .cornerRadius(8)
                 }
-
             }
-            .padding(16)
-            .background(Color(uiColor: .systemBackground))
-            .cornerRadius(10)
-            .bcShadow2()
-            .padding(16)
         }
+
     }
 }
 

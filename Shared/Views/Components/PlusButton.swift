@@ -14,7 +14,7 @@ struct PlusButton: View {
     
     
     var body: some View {
-        Button {
+        Button {    // Just a basic button
             action()
         } label: {
             Image(systemName: "plus")

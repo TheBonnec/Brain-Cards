@@ -10,36 +10,44 @@ import SwiftUI
 struct HomeView: View {
     
     @Environment(\.managedObjectContext) private var context
-    @EnvironmentObject var contentViewVM: ContentViewVM
+    @EnvironmentObject var tabBarVM: TabBarVM
     @StateObject var homeViewVM: HomeViewVM = HomeViewVM()
-    @FetchRequest(fetchRequest: Deck.fetchRequest()) private var decks: FetchedResults<Deck>
+    @FetchRequest(entity: Deck.entity(), sortDescriptors: []) private var decks: FetchedResults<Deck>
 
     @State var showCreateDeckView: Bool = false
+    @State var showDeckDetailView: Bool = false
+    @State var deckToPass: Deck = Deck()
+    
     
     
     var body: some View {
         ZStack {
-            // Main View
-            homeView
+            // Decks List View
+            decksListView
             
             // New Deck Button
             PlusButton {
-                self.contentViewVM.toogleTabBar()
+                self.tabBarVM.toogleTabBar()
                 self.showCreateDeckView = true
             }
-            .padding(.bottom, contentViewVM.showTabBar ? 76 : 0)    // The button will be positioned higher is the Tab Bar is shown
+            .padding(.bottom, tabBarVM.showTabBar ? 76 : 0)    // The button will be positioned higher is the Tab Bar is shown
             .vBottom()
             
             // New Deck View
             if showCreateDeckView {
                 CreateDeckView(homeViewVM: homeViewVM, showCreateDeckView: $showCreateDeckView)
             }
+            
+            // Deck Detail View
+            if showDeckDetailView {
+                DeckDetailView(showDeckView: $showDeckDetailView, deck: deckToPass)
+            }
         }
     }
     
     
     
-    var homeView: some View {
+    var decksListView: some View {
         NavigationView {
             ZStack {
                 // Background Color
@@ -54,7 +62,11 @@ struct HomeView: View {
                             ForEach(decks, id: \.self) { deck in
                                 DeckCellView(deck: deck, progression: 40)
                                     .onTapGesture {
-                                        homeViewVM.deleteDeck(context: context, deck: deck)
+                                        withAnimation {
+                                            self.showDeckDetailView = true
+                                            self.deckToPass = deck
+                                            self.tabBarVM.toogleTabBar()
+                                        }
                                     }
                             }
                         }
@@ -64,7 +76,7 @@ struct HomeView: View {
                     }
                 }
             }
-            .navigationTitle(Text("Brain Cards"))
+            .navigationTitle(Text("Home"))
         }
     }
 }

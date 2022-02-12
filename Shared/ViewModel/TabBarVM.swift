@@ -10,13 +10,8 @@ import SwiftUI
 import Combine
 
 
-class ContentViewVM: ObservableObject {
-    @Published var tabBarState: BCTabBarEnum = .home
+class TabBarVM: ObservableObject {
     @Published var showTabBar: Bool = true
-    
-    func updateTabBarState(newValue: BCTabBarEnum) {
-        self.tabBarState = newValue
-    }
     
     func toogleTabBar() {
         self.showTabBar.toggle()
@@ -27,6 +22,7 @@ class ContentViewVM: ObservableObject {
 
 enum BCTabBarEnum: String {
     case home = "house.fill"
+    case store = "bag.fill.badge.plus"
     case statistics = "chart.bar.fill"
     case account = "person.crop.circle.fill"
 }
