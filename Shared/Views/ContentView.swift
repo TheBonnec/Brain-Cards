@@ -19,7 +19,7 @@ struct ContentView: View {
         ZStack {
             // Main view
             switch tabBarState {
-            case .home: HomeView()
+            case .home: HomeView(viewModel: HomeViewVM(context: context))
             case .store: Text("Store")
             case .statistics: Text("Statistics")
             case .account: Text("Account")
@@ -42,47 +42,5 @@ struct ContentView: View {
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
         ContentView()
-    }
-}
-
-
-
-
-
-extension View {
-    func hLeading() -> some View {
-        self
-            .frame(maxWidth: .infinity, alignment: .leading)
-    }
-    func hTrailing() -> some View {
-        self
-            .frame(maxWidth: .infinity, alignment: .trailing)
-    }
-    func hCenter() -> some View {
-        self
-            .frame(maxWidth: .infinity, alignment: .center)
-    }
-    func vTop() -> some View {
-        self
-            .frame(maxHeight: .infinity, alignment: .top)
-    }
-    func vBottom() -> some View {
-        self
-            .frame(maxHeight: .infinity, alignment: .bottom)
-    }
-    func vCenter() -> some View {
-        self
-            .frame(maxHeight: .infinity, alignment: .center)
-    }
-    
-    
-    
-    func bcShadow() -> some View {
-        self
-            .shadow(color: Color(uiColor: .black).opacity(0.2), radius: 13)
-    }
-    func bcShadow2() -> some View {
-        self
-            .shadow(color: Color(uiColor: .black).opacity(0.1), radius: 8)
     }
 }

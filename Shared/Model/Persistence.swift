@@ -12,12 +12,11 @@ import SwiftUI
 struct PersistenceController {
     static let shared = PersistenceController()
 
-    static var preview: PersistenceController = {
+    /*static var preview: PersistenceController = {
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
         for _ in 0..<10 {
             let newDeck = Deck(context: viewContext)
-            newDeck.id = UUID()
             newDeck.name = "Code de la route"
             newDeck.icon = "car.fill"
             newDeck.iconColor = UIColor.blue
@@ -32,7 +31,7 @@ struct PersistenceController {
             fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
         }
         return result
-    }()
+    }()*/
 
     let container: NSPersistentContainer
 

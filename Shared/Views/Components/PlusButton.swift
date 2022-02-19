@@ -10,6 +10,7 @@ import SwiftUI
 
 struct PlusButton: View {
     
+    var bgColor: Color = .cyan
     var action: () -> Void
     
     
@@ -21,13 +22,13 @@ struct PlusButton: View {
                 .font(Font.title2.weight(.medium))
                 .foregroundColor(.white)
                 .frame(width: 40, height: 40)
-                .background(Color.cyan)
+                .background(bgColor)
                 .cornerRadius(6)
                 .bcShadow()
                 .padding(16)
-                .hTrailing()
         }
-
+        .hTrailing()
+        .vBottom()
     }
 }
 

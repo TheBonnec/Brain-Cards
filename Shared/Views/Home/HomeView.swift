@@ -11,12 +11,11 @@ struct HomeView: View {
     
     @Environment(\.managedObjectContext) private var context
     @EnvironmentObject var tabBarVM: TabBarVM
-    @StateObject var homeViewVM: HomeViewVM = HomeViewVM()
-    @FetchRequest(entity: Deck.entity(), sortDescriptors: []) private var decks: FetchedResults<Deck>
+    @StateObject var viewModel: HomeViewVM
 
     @State var showCreateDeckView: Bool = false
     @State var showDeckDetailView: Bool = false
-    @State var deckToPass: Deck = Deck()
+    @State var deckToPass: DeckViewModel? = nil
     
     
     
@@ -31,16 +30,15 @@ struct HomeView: View {
                 self.showCreateDeckView = true
             }
             .padding(.bottom, tabBarVM.showTabBar ? 76 : 0)    // The button will be positioned higher is the Tab Bar is shown
-            .vBottom()
             
             // New Deck View
             if showCreateDeckView {
-                CreateDeckView(homeViewVM: homeViewVM, showCreateDeckView: $showCreateDeckView)
+                CreateDeckView(createDeckViewVM: CreateDeckViewVM(context: context), showCreateDeckView: $showCreateDeckView)
             }
             
             // Deck Detail View
-            if showDeckDetailView {
-                DeckDetailView(showDeckView: $showDeckDetailView, deck: deckToPass)
+            if showDeckDetailView && deckToPass != nil {
+                DeckDetailView(showDeckView: $showDeckDetailView, context: context, deck: deckToPass!)
             }
         }
     }
@@ -54,26 +52,23 @@ struct HomeView: View {
                 Color(uiColor: .brainCardsBackground)
                     .ignoresSafeArea()
                 
-                
-                VStack(spacing: 16) {
-                    // Items view
-                    ScrollView {
-                        VStack(spacing: 16) {
-                            ForEach(decks, id: \.self) { deck in
-                                DeckCellView(deck: deck, progression: 40)
-                                    .onTapGesture {
-                                        withAnimation {
-                                            self.showDeckDetailView = true
-                                            self.deckToPass = deck
-                                            self.tabBarVM.toogleTabBar()
-                                        }
+                // Items view
+                ScrollView {
+                    VStack(spacing: 16) {
+                        ForEach(viewModel.decks) { deck in
+                            DeckCellView(deck: deck, progression: 40)
+                                .onTapGesture {
+                                    withAnimation {
+                                        self.showDeckDetailView = true
+                                        self.deckToPass = deck
+                                        self.tabBarVM.toogleTabBar()
                                     }
-                            }
+                                }
                         }
-                        .frame(maxWidth: .infinity)
-                        .padding(16)
-                        .padding(.bottom, 132)
                     }
+                    .frame(maxWidth: .infinity)
+                    .padding(16)
+                    .padding(.bottom, 132)
                 }
             }
             .navigationTitle(Text("Home"))
@@ -87,6 +82,7 @@ struct HomeView: View {
 
 struct HomeView_Previews: PreviewProvider {
     static var previews: some View {
-        HomeView()
+        let context = PersistenceController.shared.container.viewContext
+        HomeView(viewModel: HomeViewVM(context: context), deckToPass: DeckViewModel(deck: Deck()))
     }
 }

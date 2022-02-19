@@ -11,12 +11,9 @@ struct CreateDeckView: View {
     
     @Environment(\.managedObjectContext) private var context
     @EnvironmentObject var tabBarVM: TabBarVM
-    @ObservedObject var homeViewVM: HomeViewVM
+    @StateObject var createDeckViewVM: CreateDeckViewVM
     
     @Binding var showCreateDeckView: Bool
-    @State var name: String = ""
-    @State var icon: String = "pencil"
-    @State var iconColor: UIColor = .systemCyan
     
     var iconGridItems: [GridItem] = [
         GridItem(.fixed(40)),
@@ -38,7 +35,7 @@ struct CreateDeckView: View {
         } contentView: {
             VStack {
                 // Deck's name field
-                TextField("Deck's name", text: $name)
+                TextField("Deck's name", text: $createDeckViewVM.name)
                     .padding(.top, 12)
                 
                 // Icon selector
@@ -47,12 +44,12 @@ struct CreateDeckView: View {
                         ForEach(iconsList, id: \.self) { icon in
                             Image(systemName: icon)
                                 .font(Font.body.weight(.semibold))
-                                .foregroundColor(self.icon == icon ? Color(uiColor: iconColor) : .gray)
+                                .foregroundColor(self.createDeckViewVM.icon == icon ? Color(uiColor: createDeckViewVM.iconColor) : .gray)
                                 .frame(width: 40, height: 40)
-                                .background(self.icon == icon ? Color(uiColor: iconColor).opacity(0.15) : nil)
+                                .background(self.createDeckViewVM.icon == icon ? Color(uiColor: createDeckViewVM.iconColor).opacity(0.15) : nil)
                                 .cornerRadius(5)
                                 .onTapGesture {
-                                    self.icon = icon
+                                    self.createDeckViewVM.icon = icon
                                 }
                         }
                     }
@@ -67,12 +64,12 @@ struct CreateDeckView: View {
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHGrid(rows: colorGridItems, spacing: 8) {
                         ForEach(colorsList, id: \.self) { iconColor in
-                            Image(systemName: iconColor == self.iconColor ? "circle.inset.filled" : "circle.fill")
+                            Image(systemName: iconColor == self.createDeckViewVM.iconColor ? "circle.inset.filled" : "circle.fill")
                                 .font(Font.body.weight(.semibold))
                                 .foregroundColor(Color(uiColor: iconColor))
                                 .frame(width: 40, height: 40)
                                 .onTapGesture {
-                                    self.iconColor = iconColor
+                                    self.createDeckViewVM.iconColor = iconColor
                                 }
                         }
                     }
@@ -86,7 +83,7 @@ struct CreateDeckView: View {
                 
                 // Create button
                 Button {
-                    self.homeViewVM.createDeck(context: context, name: name, icon: icon, iconColor: iconColor)
+                    self.createDeckViewVM.save()
                     self.tabBarVM.toogleTabBar()
                     self.showCreateDeckView = false
                 } label: {
@@ -109,6 +106,7 @@ struct CreateDeckView: View {
 
 struct CreateDeckView_Previews: PreviewProvider {
     static var previews: some View {
-        CreateDeckView(homeViewVM: HomeViewVM(), showCreateDeckView: .constant(true))
+        let context = PersistenceController.shared.container.viewContext
+        CreateDeckView(createDeckViewVM: CreateDeckViewVM(context: context), showCreateDeckView: .constant(true))
     }
 }

@@ -12,30 +12,33 @@ import CoreData
 
 
 
-class HomeViewVM: ObservableObject {
-    func createDeck(context: NSManagedObjectContext, name: String, icon: String, iconColor: UIColor) {
-        let newDeck = Deck(context: context)
-        newDeck.id = UUID()
-        newDeck.name = name
-        newDeck.icon = icon
-        newDeck.iconColor = iconColor
-        newDeck.lastOpening = Date()
+@MainActor
+class HomeViewVM: NSObject, ObservableObject {
+    
+    @Published var decks: [DeckViewModel] = []
+    private let fetchedResultsController: NSFetchedResultsController<Deck>
+    
+    init(context: NSManagedObjectContext) {
+        self.fetchedResultsController = NSFetchedResultsController(fetchRequest: Deck.all(), managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
+        super.init()
+        self.fetchedResultsController.delegate = self
+        
         do {
-            try context.save()
+            try fetchedResultsController.performFetch()
+            guard let decks = fetchedResultsController.fetchedObjects else {return}
+            self.decks = decks.map(DeckViewModel.init)
         } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+            print(error)
         }
     }
-    
-    
-    func deleteDeck(context: NSManagedObjectContext, deck: Deck) {
-        context.delete(deck)
-        do {
-            try context.save()
-        } catch {
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
-        }
+}
+
+
+
+
+extension HomeViewVM: NSFetchedResultsControllerDelegate {
+    func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        guard let deckss = controller.fetchedObjects as? [Deck] else {return}
+        self.decks = deckss.map(DeckViewModel.init)
     }
 }

@@ -11,13 +11,16 @@ struct ProgressRing: View {
     
     var progression: CGFloat
     var ringColor: Color
+    var backgroundColor: Color
+    var size: CGFloat
+    var weight: CGFloat
     
     
     var body: some View {
         ZStack {
             // Light gray circle
             Circle()
-                .stroke(Color(uiColor: .brainCardsBackground), lineWidth: 7)
+                .stroke(backgroundColor, lineWidth: 7)
             
             // Colored Circle
             Circle()
@@ -29,24 +32,25 @@ struct ProgressRing: View {
                         startAngle: .degrees(0),
                         endAngle: .degrees(360)
                     ),
-                    style: StrokeStyle(lineWidth: 7, lineCap: .round)
+                    style: StrokeStyle(lineWidth: weight, lineCap: .round)
                 ).rotationEffect(.degrees(-90))
             
             // First dot (to cover color glitch)
             Circle()
-                .frame(width: 7, height: 7)
+                .frame(width: weight, height: weight)
                 .foregroundColor(ringColor)
-                .offset(y: -30)
+                .offset(y: -size/2)
             
             // Second dot (to cover the first dot when progression = 100)
             Circle()
-                .frame(width: 7, height: 7)
-                .offset(y: -30)
+                .frame(width: weight, height: weight)
+                .offset(y: -size/2)
                 .foregroundColor(progression > 96 ? ringColor: ringColor.opacity(0))
                 .rotationEffect(Angle.degrees(360 * Double(progression/100)))
                 .shadow(color: progression > 96 ? Color.black.opacity(0.1): Color.clear, radius: 3, x: 4, y: 0)
         }
-        .frame(width: 60, height: 60, alignment: .center)
+        .frame(width: size, height: size, alignment: .center)
+        .padding(weight/2)
     }
 }
 
@@ -56,6 +60,6 @@ struct ProgressRing: View {
 
 struct ProgressRing_Previews: PreviewProvider {
     static var previews: some View {
-        ProgressRing(progression: 71, ringColor: Color.blue)
+        ProgressRing(progression: 71, ringColor: .blue, backgroundColor: .secondary, size: 60, weight: 7)
     }
 }

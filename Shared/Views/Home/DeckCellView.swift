@@ -9,7 +9,7 @@ import SwiftUI
 
 struct DeckCellView: View {
     
-    var deck: Deck
+    var deck: DeckViewModel
     var progression: CGFloat
     
     
@@ -33,7 +33,7 @@ struct DeckCellView: View {
             
             // Progression Value
             ZStack {
-                ProgressRing(progression: progression, ringColor: Color(deck.iconColor))
+                ProgressRing(progression: progression, ringColor: Color(deck.iconColor), backgroundColor: Color(uiColor: .brainCardsBackground), size: 60, weight: 7)
                     .frame(width: 60, height: 60, alignment: .center)
                 
                 Text(String(format: "%.f", progression))
@@ -54,6 +54,7 @@ struct DeckCellView: View {
 
 struct DeckCellView_Previews: PreviewProvider {
     static var previews: some View {
-        DeckCellView(deck: Deck(), progression: 71)
+        let context = PersistenceController.shared.container.viewContext
+        DeckCellView(deck: DeckViewModel(deck: Deck(context: context)), progression: 71)
     }
 }
